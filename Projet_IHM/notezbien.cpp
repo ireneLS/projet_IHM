@@ -1,5 +1,6 @@
 #include "notezbien.h"
 #include "ui_notezbien.h"
+#include <iostream>
 
 NotezBien::NotezBien(QWidget *parent) :
     QWidget(parent),
@@ -29,4 +30,10 @@ void NotezBien::paintEvent(QPaintEvent * event){
     portees+=QPoint(width(),50);
 
     painter.drawLines(portees);
+
+    QPixmap pixmap_note = QPixmap("/comptes/E115761C/Documents/projets/projet_IHM/noire.png");
+    QTransform transform;
+    transform.rotate(45);
+    pixmap_note = pixmap_note.transformed(transform);
+    painter.drawPixmap(70,70,70,70,pixmap_note);
 }
