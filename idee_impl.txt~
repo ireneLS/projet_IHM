@@ -1,0 +1,10 @@
+* faire simple bouton a cocher "afficher les notes du clavier" qui permet d'afficher les notes sur le bas des touches du piano. /!\ "afficher les notes" peut rter à confusion -> on affiche les notes du clavier où les notes sur la partition ?
+
+
+* La note a jouer est colorée en une couleur pour savoir où on est rendu ? Non. On préfèrera un petite symbole type flèche sous la note. Les couleurs peuvent porter à confusion.
+
+* Une fois la note jouée, elle s'affiche soit en rouge si l'utilisateur s'est trompé, soit en vert. Ces couleurs sont parlantes et intuitives. Plus petit bruit quand faux ?
+
+*
+
+* On peut faire un petit principe d'aide. Si l'utilisateur clique sur "aide" on colore plusieurs touches du clavier et l'utilisateur doit choisir la bonne.
