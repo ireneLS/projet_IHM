@@ -1,0 +1,20 @@
+format standard MIDI : date de début + de fin + sa hauteur
+mapper le format midi en...
+
+division du monocorde -> restriction du nombre de fréquences autorisées, consonnance, dissonnance
+
+
+/*----------------- LE PROF -------------------*/
+Clef de sol augmente do-do
+4/4 durée noir, blanche, croche.
+Marqueur sur la partition qui avance.
+La partition est visible et un marqueur temporel indique la note à jouer.
+Les altérations (diese et bémol)
+input piano 2 octaves
+on lit du midi pour afficher les partitions.
+MET LE SON YEAH
+
+Affichage des notes : Classe painter
+
+le plus compliqué : lire les notes ?
+
