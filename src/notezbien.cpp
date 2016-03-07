@@ -17,23 +17,29 @@ NotezBien::~NotezBien()
 void NotezBien::paintEvent(QPaintEvent * event){
     QPainter painter(this);
 
+    //Dessin des portées
+    int hauteursPortees[5] = {30,40,50,60,70};
     QVector<QPoint> portees = QVector<QPoint>(10);
-    portees+=QPoint(0,10);
-    portees+=QPoint(width(),10);
-    portees+=QPoint(0,20);
-    portees+=QPoint(width(),20);
-    portees+=QPoint(0,30);
-    portees+=QPoint(width(),30);
-    portees+=QPoint(0,40);
-    portees+=QPoint(width(),40);
-    portees+=QPoint(0,50);
-    portees+=QPoint(width(),50);
-
+    for(int h = 0 ; h < 5 ; h++) {
+        portees+=QPoint(0,hauteursPortees[h]);
+        portees+=QPoint(width(),hauteursPortees[h]);
+    }
     painter.drawLines(portees);
 
-    QPixmap pixmap_note = QPixmap("/comptes/E115761C/Documents/projets/projet_IHM/noire.png");
-    QTransform transform;
-    transform.rotate(45);
-    pixmap_note = pixmap_note.transformed(transform);
-    painter.drawPixmap(70,70,70,70,pixmap_note);
+    //Dessin de la clef
+    QPixmap pixmapClef = QPixmap("../ressources/clefSol.png");
+    painter.drawPixmap(0,13,35,79,pixmapClef);
+
+    //Dessin de la note
+    QPixmap pixmapNote = QPixmap("../ressources/noire.png");
+    int hauteursNotes[10] = {-15,-10,-5,0,5,10,15,20,25,30};
+    int hauteurNote = hauteursNotes[5];
+    if(hauteurNote<15) {
+        QTransform transform;
+        transform.rotate(180);
+        pixmapNote = pixmapNote.transformed(transform);
+        hauteurNote += 31;
+    }
+    painter.drawPixmap(40,hauteurNote,30,50,pixmapNote);
+
 }
