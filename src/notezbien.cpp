@@ -31,15 +31,19 @@ void NotezBien::paintEvent(QPaintEvent * event){
     painter.drawPixmap(0,13,35,79,pixmapClef);
 
     //Dessin de la note
+    dessineNote(&painter,5);
+}
+
+void NotezBien::dessineNote(QPainter* painter, int hauteur) {
     QPixmap pixmapNote = QPixmap("../ressources/noire.png");
     int hauteursNotes[10] = {-15,-10,-5,0,5,10,15,20,25,30};
-    int hauteurNote = hauteursNotes[5];
+    int hauteurNote = hauteursNotes[hauteur];
+    // Pour les notes haute (si et +), on retourne la note
     if(hauteurNote<15) {
         QTransform transform;
         transform.rotate(180);
         pixmapNote = pixmapNote.transformed(transform);
         hauteurNote += 31;
     }
-    painter.drawPixmap(40,hauteurNote,30,50,pixmapNote);
-
+    painter->drawPixmap(40,hauteurNote,30,50,pixmapNote);
 }
