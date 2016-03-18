@@ -13,8 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        notezbien.cpp
+        notezbien.cpp \
+    Touche.cpp \
+    Clavier.cpp
 
-HEADERS  += notezbien.h
+HEADERS  += notezbien.h \
+    Touche.h \
+    Clavier.h
 
-FORMS    += notezbien.ui
+FORMS    += notezbien.ui \
+    piano.ui

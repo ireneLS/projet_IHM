@@ -11,3 +11,6 @@
 
 
 * possibilité d'écouter la partition ?
+
+
+* utiliser méthode qsong::play() pour jouer un son ? Les fichiers à jouer doivent être des fichiers ressources.
