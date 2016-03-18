@@ -1,4 +1,4 @@
-* faire simple bouton a cocher "afficher les notes du clavier" qui permet d'afficher les notes sur le bas des touches du piano. /!\ "afficher les notes" peut rter à confusion -> on affiche les notes du clavier où les notes sur la partition ?
+* faire simple bouton a cocher "afficher les notes du clavier" qui permet d'afficher les notes sur le bas des touches du piano. /!\ "afficher les notes" peut porter à confusion -> on affiche les notes du clavier où les notes sur la partition ?
 
 
 * La note a jouer est colorée en une couleur pour savoir où on est rendu ? Non. On préfèrera un petite symbole type flèche sous la note. Les couleurs peuvent porter à confusion.

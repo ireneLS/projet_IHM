@@ -1,5 +1,6 @@
 #include "notezbien.h"
 #include "Clavier.h"
+//#include "Touche.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -8,8 +9,8 @@ int main(int argc, char *argv[])
    // NotezBien w;
    // w.show();
 
-   // Touche* tn = new Touche(true);
-   // tn->show();
+    //Touche* tn = new Touche(true);
+    //tn->show();
 
     Clavier* clavier = new Clavier();
     clavier->show();

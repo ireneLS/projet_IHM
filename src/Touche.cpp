@@ -2,8 +2,9 @@
 
 Touche::Touche(bool estNoire)
 {
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     if (estNoire){
-        this->setStyleSheet("QPushButton { background-color: black;outline:none}"
+        this->setStyleSheet("QPushButton { background-color: black;outline:none;border-radius: 1px;}"
                             "QPushButton:hover {background-color: grey; border-style: none;}");
     }
     else{
@@ -11,3 +12,4 @@ Touche::Touche(bool estNoire)
                             "QPushButton:hover {background-color: grey; border-style: none;}");
     }
 }
+
