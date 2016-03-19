@@ -2,9 +2,11 @@
 #define NOTEZBIEN_H
 
 #include <QWidget>
-#include <QPainter>
-#include <QVector>
-#include <QPoint>
+#include <vector>
+#include <iostream>
+#include "note.h"
+
+using namespace std;
 
 namespace Ui {
 class NotezBien;
@@ -17,8 +19,8 @@ class NotezBien : public QWidget
 public:
     explicit NotezBien(QWidget *parent = 0);
     ~NotezBien();
-    void paintEvent(QPaintEvent * event);
-    void dessineNote(QPainter* painter, int hauteur);
+    vector<Note> lirePartition(const char * cheminPartition);
+
 
 private:
     Ui::NotezBien *ui;

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,11 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         notezbien.cpp \
     Touche.cpp \
-    Clavier.cpp
+    Clavier.cpp \
+    note.cpp \
+    qportee.cpp
 
 HEADERS  += notezbien.h \
     Touche.h \
-    Clavier.h
+    Clavier.h \
+    note.h \
+    qportee.h
 
 FORMS    += notezbien.ui \
     piano.ui

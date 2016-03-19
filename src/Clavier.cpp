@@ -24,14 +24,6 @@ Clavier::Clavier() :
     Touche* toucheBlancheSI2 = new Touche(false);
 
     Touche* toucheBlancheDO3 = new Touche(false);
-    Touche* toucheBlancheRE3 = new Touche(false);
-    Touche* toucheBlancheMI3 = new Touche(false);
-    Touche* toucheBlancheFA3 = new Touche(false);
-    Touche* toucheBlancheSOL3 = new Touche(false);
-    Touche* toucheBlancheLA3 = new Touche(false);
-    Touche* toucheBlancheSI3 = new Touche(false);
-
-    Touche* toucheBlancheDO4 = new Touche(false);
 
 
     Touche* toucheNoireDOD1 = new Touche(true);
@@ -49,16 +41,7 @@ Clavier::Clavier() :
     Touche* toucheNoireSOLD2 = new Touche(true);
     Touche* toucheNoireLAD2 = new Touche(true);
 
-
     Touche* toucheNoireDOD3 = new Touche(true);
-    Touche* toucheNoireRED3 = new Touche(true);
-
-    Touche* toucheNoireFAD3 = new Touche(true);
-    Touche* toucheNoireSOLD3 = new Touche(true);
-    Touche* toucheNoireLAD3 = new Touche(true);
-
-
-    Touche* toucheNoireDOD4 = new Touche(true);
 
     QGridLayout* layout= new QGridLayout(this);
 
@@ -82,15 +65,6 @@ Clavier::Clavier() :
     layout->addWidget(toucheBlancheSI2,0,39,6,3);
 
     layout->addWidget(toucheBlancheDO3,0,42,6,3);
-    layout->addWidget(toucheBlancheRE3,0,45,6,3);
-    layout->addWidget(toucheBlancheMI3,0,48,6,3);
-    layout->addWidget(toucheBlancheFA3,0,51,6,3);
-    layout->addWidget(toucheBlancheSOL3,0,54,6,3);
-    layout->addWidget(toucheBlancheLA3,0,57,6,3);
-    layout->addWidget(toucheBlancheSI3,0,60,6,3);
-
-    layout->addWidget(toucheBlancheDO4,0,63,6,3);
-
 
     layout->addWidget(toucheNoireDOD1,0,2,3,2);
     layout->addWidget(toucheNoireRED1,0,5,3,2);
@@ -104,12 +78,6 @@ Clavier::Clavier() :
     layout->addWidget(toucheNoireSOLD2,0,35,3,2);
     layout->addWidget(toucheNoireLAD2,0,38,3,2);
 
-    layout->addWidget(toucheNoireDOD3,0,44,3,2);
-    layout->addWidget(toucheNoireRED3,0,47,3,2);
-    layout->addWidget(toucheNoireFAD3,0,53,3,2);
-    layout->addWidget(toucheNoireSOLD3,0,56,3,2);
-    layout->addWidget(toucheNoireLAD3,0,59,3,2);
-
-   // layout->addWidget(toucheNoireDOD4,0,65,3,1); // je sais pas pourquoi ça bug quand on rajoute celle là.....
+    // layout->addWidget(toucheNoireDOD3,0,44,3,2);☺// je sais pas pourquoi ça bug quand on rajoute celle là.....
 
 }
