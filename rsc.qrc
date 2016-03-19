@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/son/piano" lang="fr">
+        <file>ressources/son/piano (1).wav</file>
+        <file>ressources/son/piano (2).wav</file>
+        <file>ressources/son/piano (3).wav</file>
+        <file>ressources/son/piano (4).wav</file>
+        <file>ressources/son/piano (5).wav</file>
+        <file>ressources/son/piano (6).wav</file>
+        <file>ressources/son/piano (7).wav</file>
+        <file>ressources/son/piano (8).wav</file>
+        <file>ressources/son/piano (9).wav</file>
+        <file>ressources/son/piano (10).wav</file>
+        <file>ressources/son/piano (11).wav</file>
+        <file>ressources/son/piano (12).wav</file>
+        <file>ressources/son/piano (13).wav</file>
+        <file>ressources/son/piano (14).wav</file>
+        <file>ressources/son/piano (15).wav</file>
+        <file>ressources/son/piano (16).wav</file>
+        <file>ressources/son/piano (17).wav</file>
+        <file>ressources/son/piano (18).wav</file>
+        <file>ressources/son/piano (19).wav</file>
+        <file>ressources/son/piano (20).wav</file>
+        <file>ressources/son/piano (21).wav</file>
+        <file>ressources/son/piano (22).wav</file>
+        <file>ressources/son/piano (23).wav</file>
+        <file>ressources/son/piano (24).wav</file>
+        <file>ressources/son/piano (25).wav</file>
+        <file>ressources/son/piano (26).wav</file>
+    </qresource>
+</RCC>

@@ -11,5 +11,6 @@ int main(int argc, char *argv[])
 
     Clavier* clavier = new Clavier();
     clavier->show();
+
     return a.exec();
 }

@@ -5,7 +5,8 @@
 #-------------------------------------------------
 
 QT += core gui \
-        xml
+        xml \
+        multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -33,3 +34,6 @@ FORMS    += notezbien.ui \
 
 DISTFILES += \
     ../ressources/partition_1.xml
+
+RESOURCES += \
+    ../rsc.qrc
