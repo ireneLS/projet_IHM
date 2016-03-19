@@ -1,15 +1,19 @@
 #ifndef TOUCHE_H
 #define TOUCHE_H
-#include <QPushButton>
 #include "note.h"
+#include <QPushButton>
+
 
 class Touche : public QPushButton
 {
 public:
-        Touche(bool estNoire);
+        Touche(Note noteX, bool estNoire);
+
+public slots:
+        void jouerTouche();
 
 private:
-        //Note note; // le son qu'on doit jouer quand on clique sur la touche
+        Note * noteAJouer; // le son qu'on doit jouer quand on clique sur la touche
 
 };
 

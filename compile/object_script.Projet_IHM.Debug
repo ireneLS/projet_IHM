@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\notezbien.o
+./debug\Touche.o
+./debug\Clavier.o
+./debug\note.o
+./debug\qportee.o
+./debug\qrc_rsc.o
+./debug\moc_notezbien.o
+./debug\moc_Clavier.o
+./debug\moc_qportee.o
+);

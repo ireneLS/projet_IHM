@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\notezbien.o
+./release\Touche.o
+./release\Clavier.o
+./release\note.o
+./release\qportee.o
+./release\qrc_rsc.o
+./release\moc_notezbien.o
+./release\moc_Clavier.o
+./release\moc_qportee.o
+);

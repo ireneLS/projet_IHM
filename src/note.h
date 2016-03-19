@@ -2,6 +2,7 @@
 #define NOTE_H
 
 #include <iostream>
+#include <QSound>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ public:
 //private:
     Hauteur hauteur;
     int octave;
-    string sonPath;
+    QSound * son;
 };
 
 #endif // NOTE_H

@@ -1,7 +1,11 @@
 #include "Touche.h"
+#include<iostream>
 
-Touche::Touche(bool estNoire)
+using namespace std;
+
+Touche::Touche(Note noteX, bool estNoire)
 {
+    this->noteAJouer = &noteX;
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     if (estNoire){
         this->setStyleSheet("QPushButton { background-color: black;outline:none;border-radius: 1px;}"
@@ -11,5 +15,14 @@ Touche::Touche(bool estNoire)
         this->setStyleSheet("QPushButton { background-color: white;outline:none}"
                             "QPushButton:hover {background-color: grey; border-style: none;}");
     }
+    QObject::connect(this, SIGNAL(clicked(bool)), this, SLOT(jouerTouche()));
+
 }
+
+
+void Touche::jouerTouche(){
+    cout << "clique" << endl;
+    this->noteAJouer->son->play();
+}
+
 
