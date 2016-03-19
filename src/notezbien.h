@@ -19,7 +19,7 @@ class NotezBien : public QWidget
 public:
     explicit NotezBien(QWidget *parent = 0);
     ~NotezBien();
-    vector<Note> lirePartition(const char * cheminPartition);
+    vector<Note> lirePartition(const string cheminPartition);
 
 
 private:

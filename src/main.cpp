@@ -1,16 +1,15 @@
 #include "notezbien.h"
 #include "Clavier.h"
-//#include "Touche.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-   NotezBien w;
-   w.show();
+    NotezBien w;
+    string str = "C:\\Users\\Jean Theodore\\Documents\\GitHub\\projet_IHM\\ressources\\partition_1.xml";
+    w.lirePartition(str);
+    w.show();
 
-    //Touche* tn = new Touche(true);
-    //tn->show();
 
     Clavier* clavier = new Clavier();
     clavier->show();
