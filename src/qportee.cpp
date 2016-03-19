@@ -2,13 +2,16 @@
 
 QPortee::QPortee(QWidget *parent) : QWidget(parent) {
     notes = vector<Note>();
+    this->setMinimumHeight(100);
+    this->setMinimumWidth(40);
 }
 
 void QPortee::addNote(Note n) {
     notes.push_back(n);
+    this->setMinimumWidth(this->minimumWidth()+ QPortee::largeurNote);
 }
 
-int QPortee::hauteur(Note n) {
+int QPortee::noteToHauteur(Note n) {
     int hauteursNote[7] = {-15,-10,-5,0,5,10,15};
     int hauteurNote = hauteursNote[n.hauteur];
     if(hauteurNote<15) {
@@ -18,7 +21,6 @@ int QPortee::hauteur(Note n) {
 }
 
 void QPortee::paintEvent(QPaintEvent * event) {
-
     QPainter painter(this);
 
     //Dessin des portées
@@ -43,7 +45,6 @@ void QPortee::paintEvent(QPaintEvent * event) {
             transform.rotate(180);
             pixmapNote = pixmapNote.transformed(transform);
         }
-        painter.drawPixmap(40 + i * 20,hauteur(notes[i]),30,50,pixmapNote);
+        painter.drawPixmap(40 + i * QPortee::largeurNote,noteToHauteur(notes[i]),30,50,pixmapNote);
     }
-
 }

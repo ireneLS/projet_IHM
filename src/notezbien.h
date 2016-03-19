@@ -1,10 +1,13 @@
 #ifndef NOTEZBIEN_H
 #define NOTEZBIEN_H
 
-#include <QWidget>
+#include <QMainWindow>
 #include <vector>
 #include <iostream>
+#include <QStackedWidget>
+#include <QWidget>
 #include "note.h"
+#include "pageaccueil.h"
 
 using namespace std;
 
@@ -19,11 +22,21 @@ class NotezBien : public QWidget
 public:
     explicit NotezBien(QWidget *parent = 0);
     ~NotezBien();
+    QWidget * creerPartition();
+    QWidget * creerMenu();
     vector<Note> lirePartition(const string cheminPartition);
 
+public slots:
+    void afficherPageAccueil();
+    void afficherPagePartition();
+    void afficherPageResultat();
 
 private:
     Ui::NotezBien *ui;
+    QStackedWidget * stack;
+    PageAccueil * pageAccueil;
+    QWidget * pagePartition;
+    QWidget * pageResultats;
 };
 
 #endif // NOTEZBIEN_H

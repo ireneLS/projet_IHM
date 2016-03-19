@@ -18,13 +18,15 @@ SOURCES += main.cpp\
     Touche.cpp \
     Clavier.cpp \
     note.cpp \
-    qportee.cpp
+    qportee.cpp \
+    pageaccueil.cpp
 
 HEADERS  += notezbien.h \
     Touche.h \
     Clavier.h \
     note.h \
-    qportee.h
+    qportee.h \
+    pageaccueil.h
 
 FORMS    += notezbien.ui \
     piano.ui

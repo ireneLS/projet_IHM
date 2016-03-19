@@ -13,13 +13,16 @@ class QPortee : public QWidget
 {
     Q_OBJECT
 public:
+    static const int largeurNote = 30;
+
     explicit QPortee(QWidget *parent = 0);
     void addNote(Note n);
-    int hauteur(Note n);
+    int noteToHauteur(Note n);
     void paintEvent(QPaintEvent * event);
 
 private:
     vector<Note> notes;
+
 
 };
 

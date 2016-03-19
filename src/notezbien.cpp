@@ -6,6 +6,10 @@
 #include <QtXml>
 #include <QFile>
 #include <QMessageBox>
+#include <QComboBox>
+#include <QLabel>
+#include <QPushButton>
+#include "pageaccueil.h"
 
 using namespace std;
 
@@ -13,15 +17,23 @@ NotezBien::NotezBien(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::NotezBien)
 {
-    ui->setupUi(this);
-    QBoxLayout * t = new QVBoxLayout();
-    this->setLayout(t);
-    QPortee * q = new QPortee(this);
-    q->addNote(Note(SI,0));
-    q->addNote(Note(LA,0));
-    t->addWidget(q);
-    q = new QPortee(this);
-    t->addWidget(q);
+    // Initialisation
+    this->setMinimumSize(908,255);
+    QVBoxLayout * mainLayout = new QVBoxLayout();
+    this->setLayout(mainLayout);
+
+    // Creer les différentes pages à afficher
+    pageAccueil = new PageAccueil();
+    connect(pageAccueil->boutonJouer, SIGNAL( pressed()), this, SLOT(afficherPagePartition()));
+
+    pagePartition = creerPartition();
+    // pageResultats = creerResultats();
+
+    // Gestionnaire des pages
+    stack = new QStackedWidget(this);
+    stack->addWidget(pageAccueil);
+    stack->addWidget(pagePartition);
+    mainLayout->addWidget(stack);
 
 }
 
@@ -30,7 +42,34 @@ NotezBien::~NotezBien()
     delete ui;
 }
 
-//TODO lit une partition et retourne les notes de la partition
+void NotezBien::afficherPageAccueil() {
+    stack->setCurrentIndex(0);
+}
+
+void NotezBien::afficherPagePartition() {
+    stack->setCurrentIndex(1);
+}
+
+void NotezBien::afficherPageResultat() {
+    stack->setCurrentIndex(2);
+}
+
+QWidget * NotezBien::creerPartition() {
+    // Init
+    QWidget * widgetPartition = new QWidget();
+    QLayout * layoutPartition = new QVBoxLayout();
+    widgetPartition->setLayout(layoutPartition);
+
+    vector<Note> partition = this->lirePartition("../ressources/partition_1.xml");
+    QPortee * q = new QPortee(this);
+    for(unsigned int i = 0 ; i < partition.size() ; i++) {
+        q->addNote(partition[i]);
+    }
+    layoutPartition->addWidget(q);
+
+    return widgetPartition;
+}
+
 vector<Note> NotezBien::lirePartition(const string cheminPartition) {
 
     vector<Note> partition = vector<Note>();
@@ -46,9 +85,9 @@ vector<Note> NotezBien::lirePartition(const string cheminPartition) {
     }
     if (!dom->setContent(&xml_doc)) // Si l'on n'arrive pas à associer le fichier XML à l'objet DOM.
     {
-            xml_doc.close();
-            QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être attribué à l'objet QDomDocument.");
-            return partition;
+        xml_doc.close();
+        QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être attribué à l'objet QDomDocument.");
+        return partition;
     }
     xml_doc.close(); // on ferme le document XML : on n'en a plus besoin, tout est compris dans l'objet DOM.
 
