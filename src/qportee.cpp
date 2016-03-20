@@ -17,13 +17,13 @@ int QPortee::nbNotes() {
 }
 
 int QPortee::noteToHauteur(Note n) {
-    int hauteursNote[7];
     if(n.octave == 1) {
-        hauteursNote = {-15,-10,-5,0,5,10,15};
+        int hauteursNote[7] = {-15,-10,-5,0,5,10,15};
+        return hauteursNote[n.hauteur];
     } else {
-        hauteursNote = {-15,-10,-5,0,5,10,15};
+        int hauteursNote[7] = {-15,-10,-5,0,5,10,15};
+        return hauteursNote[n.hauteur];
     }
-    return hauteursNote[n.hauteur];
 }
 
 bool QPortee::checkNote(Note n) {
@@ -52,14 +52,14 @@ void QPortee::paintEvent(QPaintEvent * event) {
     //Dessin des notes
     for(unsigned int i = 0 ; i < notes.size() ; i++) {
         QPixmap pixmapNote = *notes[i].img;
-        painter.drawPixmap(40 + i * QPortee::largeurNote, noteToHauteur(notes[i]),
+        painter.drawPixmap(60 + i * QPortee::largeurNote, noteToHauteur(notes[i]),
                            30, 50, pixmapNote);
     }
 
     //Dessin du curseur
     if(noteActuelle < notes.size()) {
-        QPoint bas = QPoint(55 + noteActuelle * QPortee::largeurNote, 0);
-        QPoint haut = QPoint(55 + noteActuelle * QPortee::largeurNote, 100);
+        QPoint bas = QPoint(75 + noteActuelle * QPortee::largeurNote, 0);
+        QPoint haut = QPoint(75 + noteActuelle * QPortee::largeurNote, 100);
         painter.setPen(Qt::blue);
         painter.drawLine(bas,haut);
     }

@@ -98,12 +98,18 @@ Note::~Note() {
 
 bool Note::check(Note n) {
     if(hauteur == n.hauteur && octave == n.octave) {
-        img = new QPixmap(":/");
+        img = new QPixmap("../ressources/images/verte.png");
+        if(hauteur == SI || octave > 1) {
+            retourner->rotate(180);
+        }
         img = new QPixmap(img->transformed(*retourner));
         reussi = true;
         return true;
     }
-    img = new QPixmap(":/");
+    img = new QPixmap("../ressources/images/rouge.png");
+    if(hauteur == SI || octave > 1) {
+        retourner->rotate(180);
+    }
     img = new QPixmap(img->transformed(*retourner));
     return false;
 }
