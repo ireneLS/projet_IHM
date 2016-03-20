@@ -13,8 +13,7 @@ Note::Note(Hauteur hauteur, int octave) {
     if(hauteur == SI || octave > 1) {
         retourner->rotate(180);
     }
-    QImage imgTransformed = img->transformed(*retourner);
-    img = &imgTransformed;
+    img = new QImage(img->transformed(*retourner));
 
     // Associe au son
     if(hauteur == DO){
@@ -76,6 +75,7 @@ Note::Note(Hauteur hauteur, int octave) {
 
 }
 
+
 Note::Note(string hauteur, int octave) : Note(DO,octave){
     if(hauteur == "re") {this->hauteur = RE;}
     else if(hauteur == "mi") {this->hauteur = MI;}
@@ -83,6 +83,11 @@ Note::Note(string hauteur, int octave) : Note(DO,octave){
     else if(hauteur == "sol") {this->hauteur = SOL;}
     else if(hauteur == "la") {this->hauteur = LA;}
     else if(hauteur == "si") {this->hauteur = SI;}
+
+    if(this->hauteur == SI || octave > 1) {
+        retourner->rotate(180);
+    }
+    img = new QImage(img->transformed(*retourner));
 }
 
 Note::~Note() {
@@ -90,6 +95,7 @@ Note::~Note() {
 }
 
 bool Note::check(Note n) {
+    cout << "octave"  << endl;
     if(hauteur == n.hauteur && octave == n.octave) {
         img = new QImage(":/");
         QImage imgTransformed = img->transformed(*retourner);

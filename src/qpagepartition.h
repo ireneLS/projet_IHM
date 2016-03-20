@@ -21,16 +21,21 @@ class QPagePartition : public QWidget
 public:
     explicit QPagePartition(QWidget *parent = 0);
     vector<Note> lirePartition(const string chemin);
-
-    //Note currentNote;
+    void resizeEvent(QResizeEvent * event = 0);
 
 private :
     QVBoxLayout * layout;
     vector<QPortee*> portees;
+    QString cheminPartition;
+    int porteeActuelle;
+    int cptNote;
+
+signals:
+    void fini();
 
 public slots:
-    void updatePortees(QString cheminPartition);
-    void nextNote();
+    void updatePortees(QString cheminPartition = 0);
+    void checkNote(Note n);
 };
 
 #endif // QPAGEPARTITION_H

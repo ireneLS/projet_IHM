@@ -16,6 +16,10 @@ void QPortee::addNote(Note n) {
     this->setMinimumWidth(this->minimumWidth()+ QPortee::largeurNote);
 }
 
+int QPortee::nbNotes() {
+    return notes.size();
+}
+
 int QPortee::noteToHauteur(Note n) {
     int hauteursNote[7] = {-15,-10,-5,0,5,10,15};
     int hauteurNote = hauteursNote[n.hauteur];
@@ -25,10 +29,11 @@ int QPortee::noteToHauteur(Note n) {
     return hauteurNote;
 }
 
-void QPortee::checkNote(Note n) {
+bool QPortee::checkNote(Note n) {
     notes[noteActuelle].check(n);
     ++noteActuelle;
     this->paintEvent();
+    return noteActuelle >= notes.size();
 }
 
 void QPortee::paintEvent(QPaintEvent * event) {
@@ -50,13 +55,14 @@ void QPortee::paintEvent(QPaintEvent * event) {
     //Dessin des notes
     for(unsigned int i = 0 ; i < notes.size() ; i++) {
         QImage img = *notes[i].img;
-        cout << img.height() << endl;
-        painter.drawImage(40 + i * QPortee::largeurNote, noteToHauteur(notes[i]), img,0,0,30,50);
+        painter.drawImage(40 + i * QPortee::largeurNote, noteToHauteur(notes[i]), img,30,50);
     }
 
     //Dessin du curseur
-    QPoint bas = QPoint(55 + noteActuelle * QPortee::largeurNote, 0);
-    QPoint haut = QPoint(55 + noteActuelle * QPortee::largeurNote, 100);
-    painter.setPen(Qt::blue);
-    painter.drawLine(bas,haut);
+    if(noteActuelle < notes.size()) {
+        QPoint bas = QPoint(55 + noteActuelle * QPortee::largeurNote, 0);
+        QPoint haut = QPoint(55 + noteActuelle * QPortee::largeurNote, 100);
+        painter.setPen(Qt::blue);
+        painter.drawLine(bas,haut);
+    }
 }

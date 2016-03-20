@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     note.cpp \
     qportee.cpp \
     pageaccueil.cpp \
-    qpagepartition.cpp
+    qpagepartition.cpp \
+    qpageresultat.cpp
 
 HEADERS  += notezbien.h \
     Touche.h \
@@ -29,7 +30,8 @@ HEADERS  += notezbien.h \
     note.h \
     qportee.h \
     pageaccueil.h \
-    qpagepartition.h
+    qpagepartition.h \
+    qpageresultat.h
 
 FORMS    += notezbien.ui \
     piano.ui

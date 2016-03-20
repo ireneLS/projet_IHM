@@ -13,10 +13,35 @@ class Clavier : public QWidget
 public:
     Clavier(QWidget * parent = 0);
 
-signals:
+    Touche* toucheBlancheDO1;
+    Touche* toucheBlancheRE1;
+    Touche* toucheBlancheMI1;
+    Touche* toucheBlancheFA1;
+    Touche* toucheBlancheSOL1;
+    Touche* toucheBlancheLA1;
+    Touche* toucheBlancheSI1;
 
-public slots:
+    Touche* toucheBlancheDO2;
+    Touche* toucheBlancheRE2;
+    Touche* toucheBlancheMI2;
+    Touche* toucheBlancheFA2;
+    Touche* toucheBlancheSOL2;
+    Touche* toucheBlancheLA2;
+    Touche* toucheBlancheSI2;
 
+    Touche* toucheNoireDOD1;
+    Touche* toucheNoireRED1;
+
+    Touche* toucheNoireFAD1;
+    Touche* toucheNoireSOLD1;
+    Touche* toucheNoireLAD1;
+
+    Touche* toucheNoireDOD2;
+    Touche* toucheNoireRED2;
+
+    Touche* toucheNoireFAD2;
+    Touche* toucheNoireSOLD2;
+    Touche* toucheNoireLAD2;
 };
 
 #endif // CLAVIER_H

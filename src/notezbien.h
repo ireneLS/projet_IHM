@@ -9,8 +9,10 @@
 
 #include "pageaccueil.h"
 #include "qpagepartition.h"
-#include "qportee.h"
+#include "qpageresultat.h"
 #include "note.h"
+#include "qportee.h"
+#include "Clavier.h"
 
 using namespace std;
 
@@ -39,7 +41,10 @@ private:
     QStackedWidget * stack;
     QPageAccueil * pageAccueil;
     QPagePartition * pagePartition;
-    QWidget * pageResultats;
+    QPageResultat * pageResultats;
+    Clavier * clavier;
+
+    void connectPiano();
 };
 
 #endif // NOTEZBIEN_H

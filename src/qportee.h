@@ -19,16 +19,16 @@ public:
 
     explicit QPortee(QWidget *parent = 0);
     void addNote(Note n);
+    int nbNotes();
     int noteToHauteur(Note n);
     void paintEvent(QPaintEvent * event = 0);
 
 public slots:
-    void checkNote(Note n);
+    bool checkNote(Note n);
 
 private:
     vector<Note> notes;
     int noteActuelle;
-
 
 };
 

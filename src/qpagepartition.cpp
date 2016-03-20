@@ -5,40 +5,63 @@ using namespace std;
 
 QPagePartition::QPagePartition(QWidget *parent) : QWidget(parent)
 {
+    porteeActuelle = 0;
+    cptNote = 0;
+
     // Indique le layout
     layout = new QVBoxLayout();
     this->setLayout(layout);
 }
 
 void QPagePartition::updatePortees(QString nomPartition){
-    // On recupere la partition contenu dans le fichier XML
-    QString cheminPartition = QString("../ressources/partitions/");
-    cheminPartition.append(nomPartition);
-    cheminPartition.append(".xml");
+    if(nomPartition!=0) {
+        // On recupere la partition contenu dans le fichier XML
+        cheminPartition = QString("../ressources/partitions/");
+        cheminPartition.append(nomPartition);
+        cheminPartition.append(".xml");
+    }
+
     vector<Note> partition = this->lirePartition(cheminPartition.toStdString());
 
+    // Remise à zéro
+    portees = vector<QPortee*>();
+    QLayoutItem *item;
+    while ((item = layout->takeAt(0)) != 0) {
+        item->widget()->deleteLater();
+        delete item;
+    }
+
     // Creation et affichage des portées
-    QPortee * currentPortee = new QPortee(this);
+    QPortee * currentPortee = new QPortee();
     for(unsigned int i = 0 ; i < partition.size() ; i++) {
         currentPortee->addNote(partition[i]);
-        //cout << partition[i].img->height() << endl;
 
         // Si la portee est trop large, on fait une nouvelle portee
-        if(currentPortee->width() == this->width()) {
+        if(currentPortee->minimumWidth() >= this->width() - 39) {
             portees.push_back(currentPortee);
             layout->addWidget(currentPortee);
             currentPortee = new QPortee(this);
         }
+
+        /* Si la note actuelle est dans la portee actuelle,
+           alors on indique la portee actuellement joué*/
+        if(cptNote==i && portees.size()!=0) {
+            porteeActuelle = portees.size()-1;
+        }
     }
     portees.push_back(currentPortee);
     layout->addWidget(currentPortee);
-
-    //On remet à zero la note position de la note courante
-    //currentNote = partition[0];
 }
 
-void QPagePartition::nextNote() {
-    //currentNote = ;
+void QPagePartition::checkNote(Note n) {
+    bool porteeFini = portees[porteeActuelle]->checkNote(n);
+    ++cptNote;
+    if(porteeFini) {
+        ++porteeActuelle;
+    }
+    if(porteeActuelle >= portees.size()) {
+        emit fini();
+    }
 }
 
 vector<Note> QPagePartition::lirePartition(const string cheminPartition) {
@@ -67,9 +90,14 @@ vector<Note> QPagePartition::lirePartition(const string cheminPartition) {
 
     while(!note.isNull()){// tant qu'on a des notes dans la partition
         QDomElement elNote = note.toElement();
-        partition.push_back(Note(elNote.attribute("hauteur").toStdString(),elNote.attribute("octave").toInt()));
+        Note n = Note(elNote.attribute("hauteur").toStdString(),elNote.attribute("octave").toInt());
+        partition.push_back(n);
         note = note.nextSibling();
     }
 
     return partition;
+}
+
+void QPagePartition::resizeEvent(QResizeEvent *event) {
+    updatePortees();
 }

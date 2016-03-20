@@ -9,13 +9,16 @@ class Touche : public QPushButton
 {
     Q_OBJECT
 public:
-        Touche(Note * noteX, bool estNoire, QWidget * parent = nullptr);
+        Touche(Note * note, bool estNoire, QWidget * parent = nullptr);
+
+signals:
+        void jouee(Note n);
 
 public slots:
-        void jouerTouche();
+        void jouee();
 
 private:
-        Note * noteAJouer; // le son qu'on doit jouer quand on clique sur la touche
+        Note * noteJouee; // la note jouée quand on clique sur la touche
 
 };
 
