@@ -1,0 +1,69 @@
+<?xml version="2.1" encoding="utf-8"?>
+<partition>
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="do" octave="2"/>
+
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="do" octave="2"/>
+	
+</partition>
