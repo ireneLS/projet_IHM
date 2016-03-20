@@ -25,13 +25,16 @@ public:
 
 private :
     QVBoxLayout * layout;
-    vector<QPortee*> portees;
     QString cheminPartition;
+
+    vector<QPortee*> portees;
     int porteeActuelle;
-    int cptNote;
+
+    vector<Note> partition;
+    int noteActuelle;
 
 signals:
-    void fini();
+    void fini(vector<Note> partition);
 
 public slots:
     void updatePortees(QString cheminPartition = 0);

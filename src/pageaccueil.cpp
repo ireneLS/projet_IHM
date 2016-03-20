@@ -6,7 +6,7 @@ QPageAccueil::QPageAccueil(QWidget *parent) : QWidget(parent) {
     this->setLayout(layout);
 
     // Affichage du titre
-    layout->addWidget(titre = creerTitre());
+    layout->addWidget(creerTitre());
 
     // Affichage de la selection du menu déroulant
     layout->addWidget(creerSelectionPartition());
@@ -15,21 +15,28 @@ QPageAccueil::QPageAccueil(QWidget *parent) : QWidget(parent) {
     layout->addWidget(creerAjoutPartition());
 
     // Affichage du bouton jouer
-    boutonJouer = new QPushButton("Jouer !");
-    layout->addWidget(boutonJouer);
+    layout->addWidget(creerBoutonJouer());
 }
 
-QLabel* QPageAccueil::creerTitre() {
-    QLabel * titre = new QLabel("Notez-bien");
+QWidget * QPageAccueil::creerTitre() {
+    // Initialisation et ajout du layout principal
+    QWidget * widgetAccueil = new QWidget();
+    QLayout * layout = new QHBoxLayout();
+    layout->setAlignment(Qt::AlignCenter);
+    widgetAccueil->setLayout(layout);
 
-    // Definition de la police : Calibri, gras, 20pt
+    // Creation du titre
+    titre = new QLabel("Notez - bien");
+    layout->addWidget(titre);
+
+    // Definition de la police : Calibri, gras, 30pt
     QFont police = QFont();
     police.setFamily("Calibri");
-    police.setPointSize(20);
+    police.setPointSize(30);
     police.setBold(true);
     titre->setFont(police);
 
-    return titre;
+    return widgetAccueil;
 }
 
 void QPageAccueil::updateListePartitions() {
@@ -49,6 +56,7 @@ QWidget* QPageAccueil::creerSelectionPartition() {
     // Initialisation et ajout du layout principal
     QWidget * selectionPartition = new QWidget();
     QLayout * layout = new QHBoxLayout();
+    layout->setAlignment(Qt::AlignCenter);
     selectionPartition->setLayout(layout);
 
     // Definition du label et de sa police : Calibri, 12pt
@@ -95,6 +103,7 @@ QWidget* QPageAccueil::creerAjoutPartition() {
     // Initialisation et ajout du layout principal
     QWidget* ajoutPartition = new QWidget();
     QLayout* layout = new QHBoxLayout();
+    layout->setAlignment(Qt::AlignCenter);
     ajoutPartition->setLayout(layout);
 
     // Definition du label et sa police : Calibri, 12pt
@@ -111,4 +120,23 @@ QWidget* QPageAccueil::creerAjoutPartition() {
     layout->addWidget(boutonAjoutPartition);
 
     return ajoutPartition;
+}
+
+QWidget * QPageAccueil::creerBoutonJouer() {
+    // Initialisation et ajout du layout principal
+    QWidget * widgetJouer = new QWidget();
+    QLayout* layout = new QHBoxLayout();
+    widgetJouer ->setLayout(layout);
+
+    boutonJouer = new QPushButton("Jouer !");
+    boutonJouer->setMaximumWidth(100);
+    boutonJouer->setMinimumHeight(50);
+    layout->addWidget(boutonJouer);
+
+    QFont police = QFont();
+    police.setBold(true);
+    police.setPointSize(12);
+    boutonJouer->setFont(police);
+
+    return widgetJouer;
 }

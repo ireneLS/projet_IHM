@@ -1,13 +1,9 @@
 #include "qportee.h"
 
-#include<iostream>
-using namespace std;
-
 QPortee::QPortee(QWidget *parent) : QWidget(parent) {
     notes = vector<Note>();
     noteActuelle = 0;
     this->setMinimumHeight(100);
-    this->setMaximumHeight(100);
     this->setMinimumWidth(40);
 }
 
@@ -21,18 +17,19 @@ int QPortee::nbNotes() {
 }
 
 int QPortee::noteToHauteur(Note n) {
-    int hauteursNote[7] = {-15,-10,-5,0,5,10,15};
-    int hauteurNote = hauteursNote[n.hauteur];
-    if(hauteurNote<15) {
-        hauteurNote += 31;
+    int hauteursNote[7];
+    if(n.octave == 1) {
+        hauteursNote = {-15,-10,-5,0,5,10,15};
+    } else {
+        hauteursNote = {-15,-10,-5,0,5,10,15};
     }
-    return hauteurNote;
+    return hauteursNote[n.hauteur];
 }
 
 bool QPortee::checkNote(Note n) {
     notes[noteActuelle].check(n);
     ++noteActuelle;
-    this->paintEvent();
+    this->update();
     return noteActuelle >= notes.size();
 }
 
@@ -54,8 +51,9 @@ void QPortee::paintEvent(QPaintEvent * event) {
 
     //Dessin des notes
     for(unsigned int i = 0 ; i < notes.size() ; i++) {
-        QImage img = *notes[i].img;
-        painter.drawImage(40 + i * QPortee::largeurNote, noteToHauteur(notes[i]), img,30,50);
+        QPixmap pixmapNote = *notes[i].img;
+        painter.drawPixmap(40 + i * QPortee::largeurNote, noteToHauteur(notes[i]),
+                           30, 50, pixmapNote);
     }
 
     //Dessin du curseur

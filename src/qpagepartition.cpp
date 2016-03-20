@@ -6,7 +6,7 @@ using namespace std;
 QPagePartition::QPagePartition(QWidget *parent) : QWidget(parent)
 {
     porteeActuelle = 0;
-    cptNote = 0;
+    noteActuelle = 0;
 
     // Indique le layout
     layout = new QVBoxLayout();
@@ -21,7 +21,7 @@ void QPagePartition::updatePortees(QString nomPartition){
         cheminPartition.append(".xml");
     }
 
-    vector<Note> partition = this->lirePartition(cheminPartition.toStdString());
+    this->lirePartition(cheminPartition.toStdString());
 
     // Remise à zéro
     portees = vector<QPortee*>();
@@ -45,7 +45,7 @@ void QPagePartition::updatePortees(QString nomPartition){
 
         /* Si la note actuelle est dans la portee actuelle,
            alors on indique la portee actuellement joué*/
-        if(cptNote==i && portees.size()!=0) {
+        if(noteActuelle==i && portees.size()!=0) {
             porteeActuelle = portees.size()-1;
         }
     }
@@ -54,19 +54,21 @@ void QPagePartition::updatePortees(QString nomPartition){
 }
 
 void QPagePartition::checkNote(Note n) {
-    bool porteeFini = portees[porteeActuelle]->checkNote(n);
-    ++cptNote;
-    if(porteeFini) {
-        ++porteeActuelle;
-    }
-    if(porteeActuelle >= portees.size()) {
-        emit fini();
+    if(this->isVisible()) {
+        bool porteeFini = portees[porteeActuelle]->checkNote(n);
+        ++noteActuelle;
+        if(porteeFini) {
+            ++porteeActuelle;
+        }
+        if(porteeActuelle >= portees.size()) {
+            emit fini(partition);
+        }
     }
 }
 
 vector<Note> QPagePartition::lirePartition(const string cheminPartition) {
 
-    vector<Note> partition = vector<Note>();
+    partition = vector<Note>();
 
     QDomDocument *dom = new QDomDocument();
     QFile xml_doc(QString::fromStdString(cheminPartition));// initialisation du fichier
@@ -99,5 +101,6 @@ vector<Note> QPagePartition::lirePartition(const string cheminPartition) {
 }
 
 void QPagePartition::resizeEvent(QResizeEvent *event) {
-    updatePortees();
+
+
 }

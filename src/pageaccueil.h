@@ -30,9 +30,10 @@ public slots:
     void updateListePartitions();
 
 private:
-    QLabel * creerTitre();
+    QWidget * creerTitre();
     QWidget * creerSelectionPartition();
     QWidget * creerAjoutPartition();
+    QWidget * creerBoutonJouer();
 };
 
 #endif // PAGEACCUEIL_H

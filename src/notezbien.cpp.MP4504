@@ -14,8 +14,6 @@ NotezBien::NotezBien(QWidget *parent) :
 
     // Creer le piano
     clavier = new Clavier();
-    connect(clavier,SIGNAL(fermer()),
-            this,SLOT(close()));
     QDesktopWidget bureau;
     QRect dimensionBureau = bureau.screenGeometry();
     clavier->move(dimensionBureau.center().x() - clavier->width() / 2,
@@ -136,11 +134,10 @@ void NotezBien::closeEvent(QCloseEvent * event) {
                                                                 tr("Êtes-vous sûr de vouloir quitter Notez-Bien?\n"),
                                                                 QMessageBox::Ok | QMessageBox::No,
                                                                 QMessageBox::Ok);
-    if (resBtn == QMessageBox::Ok) {
-        event->setAccepted(false);
-        clavier->closeEvent(event);
-        event->accept();
-    } else {
+    if (resBtn != QMessageBox::Yes) {
         event->ignore();
+    } else {
+        clavier->close();
+        event->accept();
     }
 }

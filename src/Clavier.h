@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QGridLayout>
+#include <QCloseEvent>
+#include <QMessageBox>
 
 #include "Touche.h"
 #include "note.h"
@@ -12,6 +14,7 @@ class Clavier : public QWidget
     Q_OBJECT
 public:
     Clavier(QWidget * parent = 0);
+    void closeEvent(QCloseEvent * event);
 
     Touche* toucheBlancheDO1;
     Touche* toucheBlancheRE1;
@@ -42,6 +45,10 @@ public:
     Touche* toucheNoireFAD2;
     Touche* toucheNoireSOLD2;
     Touche* toucheNoireLAD2;
+
+signals:
+    void fermer();
+
 };
 
 #endif // CLAVIER_H

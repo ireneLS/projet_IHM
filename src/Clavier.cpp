@@ -1,7 +1,7 @@
 #include "Clavier.h"
 
 Clavier::Clavier(QWidget * parent) : QWidget(parent) {
-    this->setMinimumSize(800, 300);
+    this->setMinimumSize(908, 255);
 
     toucheBlancheDO1 = new Touche(new Note(DO,1), false);
     toucheBlancheRE1 = new Touche(new Note(RE,1), false);
@@ -20,7 +20,6 @@ Clavier::Clavier(QWidget * parent) : QWidget(parent) {
     toucheBlancheSI2 = new Touche(new Note(SI,2),false);
 
     // toucheBlancheDO3 = new Touche(new Note(DO,3),false);
-
 
     toucheNoireDOD1 = new Touche(new Note(DO,1),true);
     toucheNoireRED1 = new Touche(new Note(DO,1),true);
@@ -75,5 +74,9 @@ Clavier::Clavier(QWidget * parent) : QWidget(parent) {
     layout->addWidget(toucheNoireLAD2,0,38,3,2);
 
     // layout->addWidget(toucheNoireDOD3,0,44,3,1);// je sais pas pourquoi ça bug quand on rajoute celle là.....
+}
+
+void Clavier::closeEvent(QCloseEvent * event) {
+    emit fermer();
 
 }

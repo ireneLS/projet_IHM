@@ -6,14 +6,16 @@ using namespace std;
 Note::Note(Hauteur hauteur, int octave) {
     this->octave = octave;
     this->hauteur = hauteur;
-    img = new QImage(":/img/notes/ressources/images/noire.png");
+    reussi = false;
+
+    img = new QPixmap(":/img/notes/ressources/images/noire.png");
 
     // Pour les notes haute (si et +), on retourne la note
     retourner = new QTransform();
     if(hauteur == SI || octave > 1) {
         retourner->rotate(180);
     }
-    img = new QImage(img->transformed(*retourner));
+    img = new QPixmap(img->transformed(*retourner));
 
     // Associe au son
     if(hauteur == DO){
@@ -87,7 +89,7 @@ Note::Note(string hauteur, int octave) : Note(DO,octave){
     if(this->hauteur == SI || octave > 1) {
         retourner->rotate(180);
     }
-    img = new QImage(img->transformed(*retourner));
+    img = new QPixmap(img->transformed(*retourner));
 }
 
 Note::~Note() {
@@ -95,16 +97,14 @@ Note::~Note() {
 }
 
 bool Note::check(Note n) {
-    cout << "octave"  << endl;
     if(hauteur == n.hauteur && octave == n.octave) {
-        img = new QImage(":/");
-        QImage imgTransformed = img->transformed(*retourner);
-        img = &imgTransformed;
+        img = new QPixmap(":/");
+        img = new QPixmap(img->transformed(*retourner));
+        reussi = true;
         return true;
     }
-    img = new QImage(":/");
-    QImage imgTransformed = img->transformed(*retourner);
-    img = &imgTransformed;
+    img = new QPixmap(":/");
+    img = new QPixmap(img->transformed(*retourner));
     return false;
 }
 

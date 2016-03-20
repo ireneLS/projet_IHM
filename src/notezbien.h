@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QStackedWidget>
+#include <QDesktopWidget>
+#include <QMessageBox>
+#include <QCloseEvent>
 
 #include <vector>
 #include <string>
@@ -32,9 +35,10 @@ public:
     vector<Note> lirePartition(const string cheminPartition);
 
 public slots:
+    void closeEvent(QCloseEvent * event);
     void afficherPageAccueil();
     void afficherPagePartition();
-    void afficherPageResultat();
+    void afficherPageResultat(const vector<Note> & partitions);
 
 private:
     Ui::NotezBien *ui;

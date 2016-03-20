@@ -2,7 +2,7 @@
 #define NOTE_H
 
 #include <QSound>
-#include <QImage>
+#include <QPixmap>
 
 #include <string>
 
@@ -24,7 +24,8 @@ public:
     Hauteur hauteur;
     int octave;
     QSound * son;
-    QImage * img;
+    QPixmap * img;
+    bool reussi;
 
 private:
     QTransform * retourner;

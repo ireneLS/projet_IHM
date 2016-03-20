@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QPoint>
+#include <QPixmap>
 
 #include <vector>
 
