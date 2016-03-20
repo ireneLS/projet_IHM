@@ -18,6 +18,8 @@ public:
     explicit QPageResultat(QWidget *parent = 0);
     void setPartition(const vector<Note> &p);
 
+    QLayout * layout;
+    QLabel * score;
     QPushButton * boutonPerfomance;
     QPushButton * boutonReessayer;
     QPushButton * boutonAccueil;

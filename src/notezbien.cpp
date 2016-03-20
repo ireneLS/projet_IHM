@@ -1,6 +1,7 @@
 #include "notezbien.h"
 #include "ui_notezbien.h"
 
+#include <iostream>
 using namespace std;
 
 NotezBien::NotezBien(QWidget *parent) :

@@ -1,9 +1,12 @@
 #include "qpageresultat.h"
 
+#include <iostream>
+using namespace std;
+
 QPageResultat::QPageResultat(QWidget *parent) : QWidget(parent)
 {
     // Definition du layout principal
-    QLayout * layout = new QVBoxLayout(this);
+    layout = new QVBoxLayout(this);
     this->setLayout(layout);
 
     // Affichage de l'appreciation
@@ -18,6 +21,21 @@ QPageResultat::QPageResultat(QWidget *parent) : QWidget(parent)
 
 void QPageResultat::setPartition(const vector<Note> & p) {
     partition = p;
+
+    // Définition du texte à afficher
+    int nbNotesReussis = 0;
+    for(int i = 0 ; i < partition.size() ; i++) {
+        if(partition[i].reussi) {
+            ++nbNotesReussis;
+        }
+    }
+
+    QString texte = QString::number(nbNotesReussis);
+    texte.append(" sur ");
+    texte.append(QString::number(partition.size()));
+    texte.append(" notes trouvées !");
+    score = new QLabel(texte);
+    layout->replaceWidget(score,score);
 }
 
 QLabel* QPageResultat::creerAppreciation() {
@@ -45,7 +63,7 @@ QLabel* QPageResultat::creerScore() {
     texte.append(" sur ");
     texte.append(QString::number(partition.size()));
     texte.append(" notes trouvées !");
-    QLabel * score = new QLabel(texte);
+    score = new QLabel(texte);
 
     // Definition de la police : Calibri, 14pt
     QFont police = QFont();
