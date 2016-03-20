@@ -22,19 +22,19 @@ Clavier::Clavier(QWidget * parent) : QWidget(parent) {
     // toucheBlancheDO3 = new Touche(new Note(DO,3),false);
 
     toucheNoireDOD1 = new Touche(new Note(DO,1),true);
-    toucheNoireRED1 = new Touche(new Note(DO,1),true);
+    toucheNoireRED1 = new Touche(new Note(RE,1),true);
 
-    toucheNoireFAD1 = new Touche(new Note(DO,1),true);
-    toucheNoireSOLD1 = new Touche(new Note(DO,1),true);
-    toucheNoireLAD1 = new Touche(new Note(DO,1),true);
+    toucheNoireFAD1 = new Touche(new Note(FA,1),true);
+    toucheNoireSOLD1 = new Touche(new Note(SOL,1),true);
+    toucheNoireLAD1 = new Touche(new Note(LA,1),true);
 
 
-    toucheNoireDOD2 = new Touche(new Note(DO,1),true);
-    toucheNoireRED2 = new Touche(new Note(DO,1),true);
+    toucheNoireDOD2 = new Touche(new Note(DO,2),true);
+    toucheNoireRED2 = new Touche(new Note(RE,2),true);
 
-    toucheNoireFAD2 = new Touche(new Note(DO,1),true);
-    toucheNoireSOLD2 = new Touche(new Note(DO,1),true);
-    toucheNoireLAD2 = new Touche(new Note(DO,1),true);
+    toucheNoireFAD2 = new Touche(new Note(FA,1),true);
+    toucheNoireSOLD2 = new Touche(new Note(SOL,1),true);
+    toucheNoireLAD2 = new Touche(new Note(RE,1),true);
 
     // toucheNoireDOD3 = new Touche(new Note(DO,1),true);
 

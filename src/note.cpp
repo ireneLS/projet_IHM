@@ -84,12 +84,12 @@ Note::Note(string hauteur, int octave) : Note(DO,octave){
     else if(hauteur == "fa") {this->hauteur = FA;}
     else if(hauteur == "sol") {this->hauteur = SOL;}
     else if(hauteur == "la") {this->hauteur = LA;}
-    else if(hauteur == "si") {this->hauteur = SI;}
-
-    if(this->hauteur == SI || octave > 1) {
-        retourner->rotate(180);
+    else if(hauteur == "si") {
+        this->hauteur = SI;
+        if(octave == 1) {
+            img = new QPixmap(img->transformed(*retourner));
+        }
     }
-    img = new QPixmap(img->transformed(*retourner));
 }
 
 Note::~Note() {
@@ -99,17 +99,11 @@ Note::~Note() {
 bool Note::check(Note n) {
     if(hauteur == n.hauteur && octave == n.octave) {
         img = new QPixmap("../ressources/images/verte.png");
-        if(hauteur == SI || octave > 1) {
-            retourner->rotate(180);
-        }
         img = new QPixmap(img->transformed(*retourner));
         reussi = true;
         return true;
     }
     img = new QPixmap("../ressources/images/rouge.png");
-    if(hauteur == SI || octave > 1) {
-        retourner->rotate(180);
-    }
     img = new QPixmap(img->transformed(*retourner));
     return false;
 }

@@ -41,12 +41,7 @@ void QPagePartition::updatePortees(QString nomPartition){
             portees.push_back(currentPortee);
             layout->addWidget(currentPortee);
             currentPortee = new QPortee(this);
-        }
-
-        /* Si la note actuelle est dans la portee actuelle,
-           alors on indique la portee actuellement joué*/
-        if(noteActuelle==i && portees.size()!=0) {
-            porteeActuelle = portees.size()-1;
+            currentPortee->setAfficherCurseur(false);
         }
     }
     portees.push_back(currentPortee);
@@ -59,9 +54,11 @@ void QPagePartition::checkNote(Note n) {
         ++noteActuelle;
         if(porteeFini) {
             ++porteeActuelle;
-        }
-        if(porteeActuelle >= portees.size()) {
-            emit fini(partition);
+            if(porteeActuelle >= portees.size()) {
+                emit fini(partition);
+            } else {
+                portees[porteeActuelle]->setAfficherCurseur(true);
+            }
         }
     }
 }

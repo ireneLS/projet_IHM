@@ -23,6 +23,7 @@ public:
     int nbNotes();
     int noteToHauteur(Note n);
     void paintEvent(QPaintEvent * event = 0);
+    void setAfficherCurseur(bool value);
 
 public slots:
     bool checkNote(Note n);
@@ -30,6 +31,7 @@ public slots:
 private:
     vector<Note> notes;
     int noteActuelle;
+    bool afficherCurseur;
 
 };
 

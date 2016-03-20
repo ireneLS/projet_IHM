@@ -3,8 +3,14 @@
 QPortee::QPortee(QWidget *parent) : QWidget(parent) {
     notes = vector<Note>();
     noteActuelle = 0;
+    afficherCurseur = true;
     this->setMinimumHeight(100);
     this->setMinimumWidth(40);
+}
+
+void QPortee::setAfficherCurseur(bool afficher) {
+    afficherCurseur = afficher;
+    this->update();
 }
 
 void QPortee::addNote(Note n) {
@@ -57,7 +63,7 @@ void QPortee::paintEvent(QPaintEvent * event) {
     }
 
     //Dessin du curseur
-    if(noteActuelle < notes.size()) {
+    if(noteActuelle < notes.size() && afficherCurseur) {
         QPoint bas = QPoint(75 + noteActuelle * QPortee::largeurNote, 0);
         QPoint haut = QPoint(75 + noteActuelle * QPortee::largeurNote, 100);
         painter.setPen(Qt::blue);
