@@ -17,6 +17,7 @@ class QPortee : public QWidget
     Q_OBJECT
 public:
     static const int largeurNote = 30;
+    vector<Note> notes;
 
     explicit QPortee(QWidget *parent = 0);
     void addNote(Note n);
@@ -29,7 +30,6 @@ public slots:
     bool checkNote(Note n);
 
 private:
-    vector<Note> notes;
     int noteActuelle;
     bool afficherCurseur;
 

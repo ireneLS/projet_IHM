@@ -22,6 +22,8 @@ public:
     explicit QPagePartition(QWidget *parent = 0);
     vector<Note> lirePartition(const string chemin);
     void resizeEvent(QResizeEvent * event = 0);
+    vector<Note> recupPartition();
+
 
 private :
     QVBoxLayout * layout;

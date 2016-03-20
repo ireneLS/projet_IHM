@@ -25,6 +25,8 @@ void QPagePartition::updatePortees(QString nomPartition){
 
     // Remise à zéro
     portees = vector<QPortee*>();
+    porteeActuelle = 0;
+    noteActuelle = 0;
     QLayoutItem *item;
     while ((item = layout->takeAt(0)) != 0) {
         item->widget()->deleteLater();
@@ -48,6 +50,16 @@ void QPagePartition::updatePortees(QString nomPartition){
     layout->addWidget(currentPortee);
 }
 
+vector<Note> QPagePartition::recupPartition() {
+    vector<Note> result = vector<Note>();
+    for(unsigned int i = 0 ; i < portees.size(); i++) {
+        for(unsigned int j = 0 ; j < portees[i]->notes.size(); j++) {
+            result.push_back(portees[i]->notes[j]);
+        }
+    }
+    return result;
+}
+
 void QPagePartition::checkNote(Note n) {
     if(this->isVisible()) {
         bool porteeFini = portees[porteeActuelle]->checkNote(n);
@@ -55,7 +67,7 @@ void QPagePartition::checkNote(Note n) {
         if(porteeFini) {
             ++porteeActuelle;
             if(porteeActuelle >= portees.size()) {
-                emit fini(partition);
+                emit fini(this->recupPartition());
             } else {
                 portees[porteeActuelle]->setAfficherCurseur(true);
             }

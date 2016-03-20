@@ -34,8 +34,7 @@ NotezBien::NotezBien(QWidget *parent) :
             pagePartition, SLOT(updatePortees(QString)) );
     connect(pageAccueil->boutonJouer, SIGNAL(pressed()),
             pagePartition, SLOT(updatePortees()) );
-    connect(pagePartition, SIGNAL(fini(vector<Note>)),
-            this, SLOT(afficherPageResultat(vector<Note>)) );
+
 
     // Creer la page résultats
     pageResultats = new QPageResultat();
@@ -45,6 +44,8 @@ NotezBien::NotezBien(QWidget *parent) :
             pagePartition, SLOT(updatePortees()) );
     connect(pageResultats->boutonReessayer, SIGNAL(pressed()),
             this, SLOT(afficherPagePartition()) );
+    connect(pagePartition, SIGNAL(fini(vector<Note>)),
+            this, SLOT(afficherPageResultat(vector<Note>)) );
 
     // Connection
     this->connectPiano();
