@@ -10,6 +10,7 @@
 #include <vector>
 
 #include "note.h"
+#include "qportee.h"
 
 class QPageResultat : public QWidget
 {
@@ -20,15 +21,18 @@ public:
 
     QLayout * layout;
     QLabel * score;
-    QPushButton * boutonPerfomance;
+    QPushButton * boutonPerformance;
     QPushButton * boutonReessayer;
     QPushButton * boutonAccueil;
 
 private:
-    QLabel* creerAppreciation();
-    QLabel* creerScore();
+    QWidget* creerAppreciation();
+    QWidget* creerScore();
     QWidget* creerBoutons();
     vector<Note> partition;
+
+ public slots :
+    void afficherPerformance();
 };
 
 #endif // QPAGERESULTAT_H

@@ -34,12 +34,17 @@ void QPageResultat::setPartition(const vector<Note> & p) {
     texte.append(" sur ");
     texte.append(QString::number(partition.size()));
     texte.append(" notes trouvées !");
-    score = new QLabel(texte);
-    layout->replaceWidget(score,score);
+    score->setText(texte);
 }
 
-QLabel* QPageResultat::creerAppreciation() {
-    QLabel * appreciation = new QLabel("Bravo ! ");
+QWidget* QPageResultat::creerAppreciation() {
+    QWidget * widget = new QWidget();
+    QLayout * layout = new QVBoxLayout();
+    layout->setAlignment(Qt::AlignCenter);
+    widget->setLayout(layout);
+
+    QLabel * appreciation = new QLabel("Fini ! ");
+    layout->addWidget(appreciation);
 
     // Definition de la police : Calibri, 18pt
     QFont police = QFont();
@@ -47,10 +52,15 @@ QLabel* QPageResultat::creerAppreciation() {
     police.setPointSize(18);
     appreciation->setFont(police);
 
-    return appreciation;
+    return widget;
 }
 
-QLabel* QPageResultat::creerScore() {
+QWidget* QPageResultat::creerScore() {
+    QWidget * widget = new QWidget();
+    QLayout * layout = new QVBoxLayout();
+    layout->setAlignment(Qt::AlignCenter);
+    widget->setLayout(layout);
+
     // Définition du texte à afficher
     int nbNotesReussis = 0;
     for(int i = 0 ; i < partition.size() ; i++) {
@@ -64,6 +74,7 @@ QLabel* QPageResultat::creerScore() {
     texte.append(QString::number(partition.size()));
     texte.append(" notes trouvées !");
     score = new QLabel(texte);
+    layout->addWidget(score);
 
     // Definition de la police : Calibri, 14pt
     QFont police = QFont();
@@ -71,25 +82,46 @@ QLabel* QPageResultat::creerScore() {
     police.setPointSize(14);
     score->setFont(police);
 
-    return score;
+    return widget;
 }
 
 QWidget* QPageResultat::creerBoutons() {
     QWidget * boutons = new QWidget(this);
     QLayout * layout = new QHBoxLayout(boutons);
+    layout->setAlignment(Qt::AlignCenter);
     boutons->setLayout(layout);
 
     // Affiche le bouton "Voir ma performance"
-    boutonPerfomance = new QPushButton("Voir ma performance",this);
-    layout->addWidget(boutonPerfomance);
+    boutonPerformance = new QPushButton("Voir ma performance",this);
+    //boutonPerformance->setMaximumSize(30,20);
+    layout->addWidget(boutonPerformance);
+    connect(boutonPerformance, SIGNAL(pressed()),
+            this, SLOT(afficherPerformance()));
 
     // Affiche le bouton "Réessayer"
     boutonReessayer = new QPushButton("Réssayer",this);
+    //boutonPerformance->setMaximumSize(30,20);
     layout->addWidget(boutonReessayer);
 
     // Affiche le bouton "Accueil"
     boutonAccueil = new QPushButton("Accueil",this);
+    //boutonPerformance->setMaximumSize(30,20);
     layout->addWidget(boutonAccueil);
 
     return boutons;
+}
+
+void QPageResultat::afficherPerformance() {
+    QWidget * widget = new QWidget();
+    QVBoxLayout * layout = new QVBoxLayout();
+    widget->setLayout(layout);
+
+    QPortee * portees = new QPortee();
+    for(int i = 0 ; i < partition.size() ; i++) {
+        portees->addNote(partition[i]);
+    }
+    portees->setAfficherCurseur(false);
+    layout->addWidget(portees);
+
+    widget->show();
 }
