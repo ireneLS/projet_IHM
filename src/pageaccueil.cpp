@@ -49,6 +49,31 @@ void QPageAccueil::updateListePartitions() {
         QFileInfo fileInfo = dir.entryInfoList().at(i);
         listePartitions->addItem(fileInfo.baseName());
     }
+
+    // LOGS
+    // Utilise la date d'aujourd'hui en tant que nom de fichier log
+    QDate today =QDate::currentDate();
+    QString fichier = QString("../logs/");
+    fichier.append(QString::number(today.day()));
+    fichier.append("-");
+    fichier.append(QString::number(today.month()));
+    fichier.append("-");
+    fichier.append(QString::number(today.year()));
+    fichier.append("logs.txt");
+
+    QFile file(fichier);
+    // On ouvre notre fichier en lecture seule et on vérifie l'ouverture
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text |QIODevice::Append)) {
+        // Création d'un flux servant à écrire les logs
+        QTextStream flux(&file);
+        flux.setCodec("UTF-8");
+
+        // Ecriture des logs
+        QTime now = QTime::currentTime();
+        flux << "[" << now.hour() << "h" << now.minute() << "m" << now.second() << "s]"
+             << "MAJ de la liste des partitions" << endl;
+    }
+    file.close();
 }
 
 QWidget* QPageAccueil::creerSelectionPartition() {
@@ -97,6 +122,31 @@ void QPageAccueil::ajouterPartition() {
     } else {
         QMessageBox::critical(this,"Erreur","Impossible de lire le fichier");
     }
+
+    // LOGS
+    // Utilise la date d'aujourd'hui en tant que nom de fichier log
+    QDate today =QDate::currentDate();
+    QString fichierLog = QString("../logs/");
+    fichierLog.append(QString::number(today.day()));
+    fichierLog.append("-");
+    fichierLog.append(QString::number(today.month()));
+    fichierLog.append("-");
+    fichierLog.append(QString::number(today.year()));
+    fichierLog.append("logs.txt");
+
+    QFile file(fichierLog);
+    // On ouvre notre fichier en lecture seule et on vérifie l'ouverture
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text |QIODevice::Append)) {
+        // Création d'un flux servant à écrire les logs
+        QTextStream flux(&file);
+        flux.setCodec("UTF-8");
+
+        // Ecriture des logs
+        QTime now = QTime::currentTime();
+        flux << "[" << now.hour() << "h" << now.minute() << "m" << now.second() << "s]"
+             << "Ajout d'une partition" << endl;
+    }
+    file.close();
 }
 
 QWidget* QPageAccueil::creerAjoutPartition() {

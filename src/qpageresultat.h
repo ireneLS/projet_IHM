@@ -6,6 +6,9 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QFile>
+#include <QDate>
+#include <QTextStream>
 
 #include <vector>
 

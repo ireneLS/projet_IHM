@@ -6,6 +6,8 @@
 #include <QDesktopWidget>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QDate>
+#include <QTextStream>
 
 #include <vector>
 #include <string>

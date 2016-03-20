@@ -124,4 +124,29 @@ void QPageResultat::afficherPerformance() {
     layout->addWidget(portees);
 
     widget->show();
+
+    // LOGS
+    // Utilise la date d'aujourd'hui en tant que nom de fichier log
+    QDate today =QDate::currentDate();
+    QString fichier = QString("../logs/");
+    fichier.append(QString::number(today.day()));
+    fichier.append("-");
+    fichier.append(QString::number(today.month()));
+    fichier.append("-");
+    fichier.append(QString::number(today.year()));
+    fichier.append("logs.txt");
+
+    QFile file(fichier);
+    // On ouvre notre fichier en lecture seule et on vérifie l'ouverture
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text |QIODevice::Append)) {
+        // Création d'un flux servant à écrire les logs
+        QTextStream flux(&file);
+        flux.setCodec("UTF-8");
+
+        // Ecriture des logs
+        QTime now = QTime::currentTime();
+        flux << "[" << now.hour() << "h" << now.minute() << "m" << now.second() << "s]"
+             << "Affiche les performances" << endl;
+    }
+    file.close();
 }

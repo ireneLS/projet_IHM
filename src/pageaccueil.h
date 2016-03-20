@@ -10,6 +10,8 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QMessageBox>
+#include <QDate>
+#include <QTextStream>
 
 #include <iostream>
 

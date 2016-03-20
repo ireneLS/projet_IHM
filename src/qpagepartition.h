@@ -6,6 +6,8 @@
 #include <QMessageBox>
 #include <QDomDocument>
 #include <QFile>
+#include <QDate>
+#include <QTextStream>
 
 #include <vector>
 #include <string>
