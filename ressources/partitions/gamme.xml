@@ -1,0 +1,18 @@
+<?xml version="2.1" encoding="utf-8"?>
+<partition>
+	<note hauteur="do" octave="1"/>
+	<note hauteur="re" octave="1"/>
+	<note hauteur="mi" octave="1"/>
+	<note hauteur="fa" octave="1"/>
+	<note hauteur="sol" octave="1"/>
+	<note hauteur="la" octave="1"/>
+	<note hauteur="si" octave="1"/>
+	
+	<note hauteur="do" octave="2"/>
+	<note hauteur="re" octave="2"/>
+	<note hauteur="mi" octave="2"/>
+	<note hauteur="fa" octave="2"/>
+	<note hauteur="sol" octave="2"/>
+	<note hauteur="la" octave="2"/>
+	<note hauteur="si" octave="2"/>
+</partition>

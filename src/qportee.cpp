@@ -24,10 +24,10 @@ int QPortee::nbNotes() {
 
 int QPortee::noteToHauteur(Note n) {
     if(n.octave == 1) {
-        int hauteursNote[7] = {-15,-10,-5,0,5,10,15};
+        int hauteursNote[7] = {40,35,30,25,20,15,10};
         return hauteursNote[n.hauteur];
     } else {
-        int hauteursNote[7] = {-15,-10,-5,0,5,10,15};
+        int hauteursNote[7] = {36,30,26,20,16,10,06};
         return hauteursNote[n.hauteur];
     }
 }
