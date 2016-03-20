@@ -1,48 +1,43 @@
 #include "Clavier.h"
-#include "Touche.h"
-#include "note.h"
-#include <QGridLayout>
 
-Clavier::Clavier() :
-    QWidget()
-{
+Clavier::Clavier(QWidget * parent) : QWidget(parent) {
     this->setMinimumSize(800, 300);
 
-    Touche* toucheBlancheDO1 = new Touche(Note(DO,1), false);
-    Touche* toucheBlancheRE1 = new Touche(Note(RE,1), false);
-    Touche* toucheBlancheMI1 = new Touche(Note(MI,1),false);
-    Touche* toucheBlancheFA1 = new Touche(Note(FA,1),false);
-    Touche* toucheBlancheSOL1 = new Touche(Note(SOL,1),false);
-    Touche* toucheBlancheLA1 = new Touche(Note(LA,1),false);
-    Touche* toucheBlancheSI1 = new Touche(Note(SI,1),false);
+    Touche* toucheBlancheDO1 = new Touche(new Note(DO,1), false);
+    Touche* toucheBlancheRE1 = new Touche(new Note(RE,1), false);
+    Touche* toucheBlancheMI1 = new Touche(new Note(MI,1),false);
+    Touche* toucheBlancheFA1 = new Touche(new Note(FA,1),false);
+    Touche* toucheBlancheSOL1 = new Touche(new Note(SOL,1),false);
+    Touche* toucheBlancheLA1 = new Touche(new Note(LA,1),false);
+    Touche* toucheBlancheSI1 = new Touche(new Note(SI,1),false);
 
-    Touche* toucheBlancheDO2 = new Touche(Note(DO,2),false);
-    Touche* toucheBlancheRE2 = new Touche(Note(RE,2),false);
-    Touche* toucheBlancheMI2 = new Touche(Note(MI,2),false);
-    Touche* toucheBlancheFA2 = new Touche(Note(FA,2),false);
-    Touche* toucheBlancheSOL2 = new Touche(Note(SOL,2),false);
-    Touche* toucheBlancheLA2 = new Touche(Note(LA,2),false);
-    Touche* toucheBlancheSI2 = new Touche(Note(SI,2),false);
+    Touche* toucheBlancheDO2 = new Touche(new Note(DO,2),false);
+    Touche* toucheBlancheRE2 = new Touche(new Note(RE,2),false);
+    Touche* toucheBlancheMI2 = new Touche(new Note(MI,2),false);
+    Touche* toucheBlancheFA2 = new Touche(new Note(FA,2),false);
+    Touche* toucheBlancheSOL2 = new Touche(new Note(SOL,2),false);
+    Touche* toucheBlancheLA2 = new Touche(new Note(LA,2),false);
+    Touche* toucheBlancheSI2 = new Touche(new Note(SI,2),false);
 
-    //Touche* toucheBlancheDO3 = new Touche(Note(DO,3),false);
-
-
-    Touche* toucheNoireDOD1 = new Touche(Note(DO,1),true);
-    Touche* toucheNoireRED1 = new Touche(Note(DO,1),true);
-
-    Touche* toucheNoireFAD1 = new Touche(Note(DO,1),true);
-    Touche* toucheNoireSOLD1 = new Touche(Note(DO,1),true);
-    Touche* toucheNoireLAD1 = new Touche(Note(DO,1),true);
+    //Touche* toucheBlancheDO3 = new Touche(new Note(DO,3),false);
 
 
-    Touche* toucheNoireDOD2 = new Touche(Note(DO,1),true);
-    Touche* toucheNoireRED2 = new Touche(Note(DO,1),true);
+    Touche* toucheNoireDOD1 = new Touche(new Note(DO,1),true);
+    Touche* toucheNoireRED1 = new Touche(new Note(DO,1),true);
 
-    Touche* toucheNoireFAD2 = new Touche(Note(DO,1),true);
-    Touche* toucheNoireSOLD2 = new Touche(Note(DO,1),true);
-    Touche* toucheNoireLAD2 = new Touche(Note(DO,1),true);
+    Touche* toucheNoireFAD1 = new Touche(new Note(DO,1),true);
+    Touche* toucheNoireSOLD1 = new Touche(new Note(DO,1),true);
+    Touche* toucheNoireLAD1 = new Touche(new Note(DO,1),true);
 
-    //Touche* toucheNoireDOD3 = new Touche(Note(DO,1),true);
+
+    Touche* toucheNoireDOD2 = new Touche(new Note(DO,1),true);
+    Touche* toucheNoireRED2 = new Touche(new Note(DO,1),true);
+
+    Touche* toucheNoireFAD2 = new Touche(new Note(DO,1),true);
+    Touche* toucheNoireSOLD2 = new Touche(new Note(DO,1),true);
+    Touche* toucheNoireLAD2 = new Touche(new Note(DO,1),true);
+
+    //Touche* toucheNoireDOD3 = new Touche(new Note(DO,1),true);
 
     QGridLayout* layout= new QGridLayout(this);
 

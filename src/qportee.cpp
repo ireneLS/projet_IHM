@@ -1,8 +1,13 @@
 #include "qportee.h"
 
+#include<iostream>
+using namespace std;
+
 QPortee::QPortee(QWidget *parent) : QWidget(parent) {
     notes = vector<Note>();
+    noteActuelle = 0;
     this->setMinimumHeight(100);
+    this->setMaximumHeight(100);
     this->setMinimumWidth(40);
 }
 
@@ -20,6 +25,12 @@ int QPortee::noteToHauteur(Note n) {
     return hauteurNote;
 }
 
+void QPortee::checkNote(Note n) {
+    notes[noteActuelle].check(n);
+    ++noteActuelle;
+    this->paintEvent();
+}
+
 void QPortee::paintEvent(QPaintEvent * event) {
     QPainter painter(this);
 
@@ -33,18 +44,19 @@ void QPortee::paintEvent(QPaintEvent * event) {
     painter.drawLines(portees);
 
     //Dessin de la clef
-    QPixmap pixmapClef = QPixmap("../ressources/clefSol.png");
+    QPixmap pixmapClef = QPixmap(":/img/notes/ressources/images/clefSol.png");
     painter.drawPixmap(0,13,35,79,pixmapClef);
 
     //Dessin des notes
-    QPixmap pixmapNote = QPixmap("../ressources/noire.png");
     for(unsigned int i = 0 ; i < notes.size() ; i++) {
-        // Pour les notes haute (si et +), on retourne la note
-        if(notes[i].hauteur == SI || notes[i].octave > 1) {
-            QTransform transform;
-            transform.rotate(180);
-            pixmapNote = pixmapNote.transformed(transform);
-        }
-        painter.drawPixmap(40 + i * QPortee::largeurNote,noteToHauteur(notes[i]),30,50,pixmapNote);
+        QImage img = *notes[i].img;
+        cout << img.height() << endl;
+        painter.drawImage(40 + i * QPortee::largeurNote, noteToHauteur(notes[i]), img,0,0,30,50);
     }
+
+    //Dessin du curseur
+    QPoint bas = QPoint(55 + noteActuelle * QPortee::largeurNote, 0);
+    QPoint haut = QPoint(55 + noteActuelle * QPortee::largeurNote, 100);
+    painter.setPen(Qt::blue);
+    painter.drawLine(bas,haut);
 }

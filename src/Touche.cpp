@@ -1,11 +1,10 @@
 #include "Touche.h"
-#include<iostream>
 
+#include<iostream>
 using namespace std;
 
-Touche::Touche(Note noteX, bool estNoire)
-{
-    this->noteAJouer = &noteX;
+Touche::Touche(Note * noteX, bool estNoire, QWidget * parent) : QPushButton(parent) {
+    noteAJouer = noteX;
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     if (estNoire){
         this->setStyleSheet("QPushButton { background-color: black;outline:none;border-radius: 1px;}"
@@ -22,7 +21,9 @@ Touche::Touche(Note noteX, bool estNoire)
 
 void Touche::jouerTouche(){
     cout << "clique" << endl;
-    this->noteAJouer->son->play();
+    string t = noteAJouer->son->fileName().toStdString();
+    cout <<  t << endl;
+    noteAJouer->son->play();
 }
 
 

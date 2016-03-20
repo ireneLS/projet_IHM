@@ -1,13 +1,16 @@
 #ifndef NOTEZBIEN_H
 #define NOTEZBIEN_H
 
-#include <QMainWindow>
-#include <vector>
-#include <iostream>
-#include <QStackedWidget>
 #include <QWidget>
-#include "note.h"
+#include <QStackedWidget>
+
+#include <vector>
+#include <string>
+
 #include "pageaccueil.h"
+#include "qpagepartition.h"
+#include "qportee.h"
+#include "note.h"
 
 using namespace std;
 
@@ -34,8 +37,8 @@ public slots:
 private:
     Ui::NotezBien *ui;
     QStackedWidget * stack;
-    PageAccueil * pageAccueil;
-    QWidget * pagePartition;
+    QPageAccueil * pageAccueil;
+    QPagePartition * pagePartition;
     QWidget * pageResultats;
 };
 

@@ -1,7 +1,6 @@
 #include "pageaccueil.h"
 
-PageAccueil::PageAccueil(QWidget *parent) : QWidget(parent)
-{
+QPageAccueil::QPageAccueil(QWidget *parent) : QWidget(parent) {
     // Definition du layout principal
     QLayout * layout = new QVBoxLayout(this);
     this->setLayout(layout);
@@ -20,7 +19,7 @@ PageAccueil::PageAccueil(QWidget *parent) : QWidget(parent)
     layout->addWidget(boutonJouer);
 }
 
-QLabel* PageAccueil::creerTitre() {
+QLabel* QPageAccueil::creerTitre() {
     QLabel * titre = new QLabel("Notez-bien");
 
     // Definition de la police : Calibri, gras, 20pt
@@ -33,8 +32,11 @@ QLabel* PageAccueil::creerTitre() {
     return titre;
 }
 
-void PageAccueil::updateListePartitions() {
+void QPageAccueil::updateListePartitions() {
+    // Remets à zéro la liste
     listePartitions->clear();
+
+    // Lit les noms des partitions, et les ajoutent à la liste
     QDir dir(QString::fromStdString("../ressources/partitions/"));
     for(int i = 2; i < dir.entryInfoList().size() ; i++) {
         QFileInfo fileInfo = dir.entryInfoList().at(i);
@@ -42,7 +44,7 @@ void PageAccueil::updateListePartitions() {
     }
 }
 
-QWidget* PageAccueil::creerSelectionPartition() {
+QWidget* QPageAccueil::creerSelectionPartition() {
 
     // Initialisation et ajout du layout principal
     QWidget * selectionPartition = new QWidget();
@@ -65,16 +67,20 @@ QWidget* PageAccueil::creerSelectionPartition() {
     return selectionPartition;
 }
 
-void PageAccueil::ajouterPartition() {
+void QPageAccueil::ajouterPartition() {
     // Selection de la partition
     QString chemin = QFileDialog::getOpenFileName(this, "Choississez la partition à ajouter", QDir::homePath(),"*.xml");
 
     // Lecture du fichier
     QFile * fichier = new QFile(chemin);
     if(fichier->exists()) {
+
+        // Definit le chemin pour copier le fichier
         QString nouveauChemin = QString("../ressources/partitions/");
         chemin.remove(0,chemin.lastIndexOf("/"));
         nouveauChemin.append(chemin);
+
+        // Copie le fichier en verifiant si tout s'est bien passe, et en mettant à jour la liste des partitions disponibles
         if(!fichier->copy(nouveauChemin)) {
             QMessageBox::critical(this, "Erreur", "Impossible de copier le fichier. Il existe déjà une partition du même nom");
         } else {
@@ -85,7 +91,7 @@ void PageAccueil::ajouterPartition() {
     }
 }
 
-QWidget* PageAccueil::creerAjoutPartition() {
+QWidget* QPageAccueil::creerAjoutPartition() {
     // Initialisation et ajout du layout principal
     QWidget* ajoutPartition = new QWidget();
     QLayout* layout = new QHBoxLayout();

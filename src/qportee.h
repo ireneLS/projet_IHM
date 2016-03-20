@@ -3,8 +3,10 @@
 
 #include <QWidget>
 #include <QPainter>
-#include <vector>
 #include <QPoint>
+
+#include <vector>
+
 #include "note.h"
 
 using namespace std;
@@ -18,10 +20,14 @@ public:
     explicit QPortee(QWidget *parent = 0);
     void addNote(Note n);
     int noteToHauteur(Note n);
-    void paintEvent(QPaintEvent * event);
+    void paintEvent(QPaintEvent * event = 0);
+
+public slots:
+    void checkNote(Note n);
 
 private:
     vector<Note> notes;
+    int noteActuelle;
 
 
 };

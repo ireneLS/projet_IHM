@@ -1,8 +1,10 @@
 #ifndef NOTE_H
 #define NOTE_H
 
-#include <iostream>
 #include <QSound>
+#include <QImage>
+
+#include <string>
 
 using namespace std;
 
@@ -10,16 +12,22 @@ typedef enum {
     DO, RE, MI, FA, SOL, LA, SI
 } Hauteur;
 
-class Note
-{
+class Note {
+
 public:
     Note(Hauteur h, int octave);
-    Note(string h, int octave);
+    Note(string hauteur, int octave);
+    ~Note();
 
-//private:
+    bool check(Note n);
+
     Hauteur hauteur;
     int octave;
     QSound * son;
+    QImage * img;
+
+private:
+    QTransform * retourner;
 };
 
 #endif // NOTE_H

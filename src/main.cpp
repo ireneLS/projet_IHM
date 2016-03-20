@@ -8,7 +8,6 @@ int main(int argc, char *argv[])
     NotezBien w;
     w.show();
 
-
     Clavier* clavier = new Clavier();
     clavier->show();
 

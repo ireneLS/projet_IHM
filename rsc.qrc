@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/son/piano" lang="fr">
+    <qresource lang="fr" prefix="/son/piano">
         <file>ressources/son/piano (1).wav</file>
         <file>ressources/son/piano (2).wav</file>
         <file>ressources/son/piano (3).wav</file>
@@ -26,5 +26,12 @@
         <file>ressources/son/piano (24).wav</file>
         <file>ressources/son/piano (25).wav</file>
         <file>ressources/son/piano (26).wav</file>
+    </qresource>
+    <qresource prefix="/img/notes">
+        <file>ressources/images/clefSol.png</file>
+        <file>ressources/images/noire.png</file>
+    </qresource>
+    <qresource prefix="/fichiers/partitions">
+        <file>ressources/partitions/partition_1.xml</file>
     </qresource>
 </RCC>

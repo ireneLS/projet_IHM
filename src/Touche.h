@@ -1,13 +1,15 @@
 #ifndef TOUCHE_H
 #define TOUCHE_H
-#include "note.h"
+
 #include <QPushButton>
 
+#include "note.h"
 
 class Touche : public QPushButton
 {
+    Q_OBJECT
 public:
-        Touche(Note noteX, bool estNoire);
+        Touche(Note * noteX, bool estNoire, QWidget * parent = nullptr);
 
 public slots:
         void jouerTouche();

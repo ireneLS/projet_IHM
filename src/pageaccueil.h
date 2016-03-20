@@ -15,11 +15,11 @@
 
 using namespace std;
 
-class PageAccueil : public QWidget
+class QPageAccueil : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PageAccueil(QWidget *parent = 0);
+    explicit QPageAccueil(QWidget *parent = 0);
     QLabel * titre;
     QComboBox * listePartitions;
     QPushButton * boutonAjoutPartition;
