@@ -78,5 +78,4 @@ Clavier::Clavier(QWidget * parent) : QWidget(parent) {
 
 void Clavier::closeEvent(QCloseEvent * event) {
     emit fermer();
-
 }

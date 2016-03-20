@@ -17,6 +17,8 @@ NotezBien::NotezBien(QWidget *parent) :
     clavier = new Clavier();
     connect(clavier,SIGNAL(fermer()),
             this,SLOT(close()));
+    connect(this, SIGNAL(fermer()),
+            clavier, SLOT(close()));
     QDesktopWidget bureau;
     QRect dimensionBureau = bureau.screenGeometry();
     clavier->move(dimensionBureau.center().x() - clavier->width() / 2,
@@ -209,13 +211,14 @@ void NotezBien::connectPiano() {
 }
 
 void NotezBien::closeEvent(QCloseEvent * event) {
+
     QMessageBox::StandardButton resBtn = QMessageBox::question( this, "",
                                                                 tr("Êtes-vous sûr de vouloir quitter Notez-Bien?\n"),
                                                                 QMessageBox::Ok | QMessageBox::No,
                                                                 QMessageBox::Ok);
     if (resBtn == QMessageBox::Ok) {
         event->setAccepted(false);
-        clavier->closeEvent(event);
+        emit fermer();
         event->accept();
     } else {
         event->ignore();
