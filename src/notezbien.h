@@ -42,6 +42,9 @@ public slots:
     void afficherPagePartition();
     void afficherPageResultat(const vector<Note> & partitions);
 
+signals:
+    void fermer();
+
 private:
     Ui::NotezBien *ui;
     QStackedWidget * stack;

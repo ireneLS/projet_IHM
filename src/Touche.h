@@ -9,7 +9,7 @@ class Touche : public QPushButton
 {
     Q_OBJECT
 public:
-        Touche(Note * note, bool estNoire, QWidget * parent = nullptr);
+        Touche(Note * note, bool estNoire, QWidget * parent = 0);
 
 signals:
         void jouee(Note n);

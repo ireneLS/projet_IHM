@@ -217,9 +217,7 @@ void NotezBien::closeEvent(QCloseEvent * event) {
                                                                 QMessageBox::Ok | QMessageBox::No,
                                                                 QMessageBox::Ok);
     if (resBtn == QMessageBox::Ok) {
-        event->setAccepted(false);
-        emit fermer();
-        event->accept();
+        qApp->quit();
     } else {
         event->ignore();
     }

@@ -20,58 +20,58 @@ Note::Note(Hauteur hauteur, int octave) {
     // Associe au son
     if(hauteur == DO){
         if (octave == 1){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (1).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (1).wav"));
         }
         else if (octave == 2){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (13).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (13).wav"));
         }
     }
     else if(hauteur == RE){
         if (octave == 1){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (3).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (3).wav"));
         }
         else if (octave == 2){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (15).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (15).wav"));
         }
     }
     else if(hauteur == MI){
         if (octave == 1){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (5).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (5).wav"));
         }
         else if (octave == 2){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (17).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (17).wav"));
         }
     }
     else if(hauteur == FA){
         if (octave == 1){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (6).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (6).wav"));
         }
         else if (octave == 2){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (18).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (18).wav"));
         }
     }
     else if(hauteur == SOL){
         if (octave == 1){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (8).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (8).wav"));
         }
         else if (octave == 2){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (20).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (20).wav"));
         }
     }
     else if(hauteur == LA){
         if (octave == 1){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (10).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (10).wav"));
         }
         else if (octave == 2){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (22).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (22).wav"));
         }
     }
     else if(hauteur == SI){
         if (octave == 1){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (12).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (12).wav"));
         }
         else if (octave == 2){
-            son = new QSound(QString::fromStdString(":/son/piano/ressources/son/piano (24).wav"));
+            son = new QSound(QString::fromStdString("../ressources/son/piano (24).wav"));
         }
     }
 

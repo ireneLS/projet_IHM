@@ -73,9 +73,11 @@ Clavier::Clavier(QWidget * parent) : QWidget(parent) {
     layout->addWidget(toucheNoireSOLD2,0,35,3,2);
     layout->addWidget(toucheNoireLAD2,0,38,3,2);
 
-    // layout->addWidget(toucheNoireDOD3,0,44,3,1);// je sais pas pourquoi ça bug quand on rajoute celle là.....
+    // layout->addWidget(toucheNoireDOD3,0,44,3,1);
 }
 
 void Clavier::closeEvent(QCloseEvent * event) {
     emit fermer();
+    event->ignore();
+
 }
