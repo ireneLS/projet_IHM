@@ -1,3 +1,10 @@
+/**
+ * \file Clavier.h
+ * \brief Définition du widget clavier affichant un clavier de piano
+ * \author Léo Cassiau, Irène Le Squer
+ * \version 0.1
+ */
+
 #ifndef QPAGEPARTITION_H
 #define QPAGEPARTITION_H
 
@@ -21,6 +28,11 @@ class QPagePartition : public QWidget
 {
     Q_OBJECT
 public:
+
+    /**
+     * @brief Constructeur de QPagePartition
+     * @param parent
+     */
     explicit QPagePartition(QWidget *parent = 0);
     vector<Note> lirePartition(const string chemin);
     void resizeEvent(QResizeEvent * event = 0);
