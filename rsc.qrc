@@ -30,6 +30,8 @@
     <qresource prefix="/img/notes">
         <file>ressources/images/clefSol.png</file>
         <file>ressources/images/noire.png</file>
+        <file>ressources/images/rouge.png</file>
+        <file>ressources/images/verte.png</file>
     </qresource>
     <qresource prefix="/fichiers/partitions">
         <file>ressources/partitions/partition_1.xml</file>
